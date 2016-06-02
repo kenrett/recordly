@@ -1,6 +1,14 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+function toggleStar() {
+  $('.glyphicon').on("click", function () {
+    var img1 = "glyphicon-star-empty",
+        img2 = "glyphicon-star";
 
-$('.empty-star').on "click", ->
-  
+    $(this).toggleClass(img1).toggleClass(img2);
+  });
+}
+
+$(document).on("ready", function () {
+  if ($('.all-albums').length) {
+    toggleStar();
+  }
+});
