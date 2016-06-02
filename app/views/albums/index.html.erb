@@ -1,0 +1,28 @@
+<h1 class="center jumbotron">All Albums</h1>
+
+<% if @all_albums %>
+    <table class="table table-striped all-albums">
+      <thead>
+      <tr>
+        <th>Favorite</th>
+        <th>Cover</th>
+        <th>Title</th>
+        <th>Artist</th>
+        <th>Genres</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @all_albums.each do |album| %>
+          <tr>
+            <td><span class="glyphicon glyphicon-star-empty"></span></td>
+            <td><%= image_tag(album.cover) %></td>
+            <td><%= album.title %></td>
+            <td><%= album.artist %></td>
+            <td><%= album.genre %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% else %>
+    <h1>No albums have been added yet.</h1>
+<% end %>
