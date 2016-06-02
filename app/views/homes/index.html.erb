@@ -1,2 +1,24 @@
-<h1>Recordly</h1>
-<p>Please sign in</p>
+<% if !user_signed_in? %>
+    <div class="center jumbotron">
+
+      <h1>Welcome to Recordly</h1>
+
+      <h2>
+        This is the home page for the DBC Code Challenge
+      </h2>
+
+      <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+      <%= link_to "Sign in!", new_user_session_path, class: "btn btn-lg btn-primary" %>
+    </div>
+<% else %>
+    <h1>Welcome back <%= "#{current_user.email}!" %></h1>
+
+    <h2>Where would you like to begin?</h2>
+
+    <%= link_to "My Albums", albums_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to "My Artists", '#', class: "btn btn-lg btn-primary" %>
+    <%= link_to "My Songs", '#', class: "btn btn-lg btn-primary" %>
+    <%= link_to "My Favorites", '#', class: "btn btn-lg btn-primary" %>
+
+    <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-lg btn-primary" %>
+<% end %>
